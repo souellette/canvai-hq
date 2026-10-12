@@ -7,16 +7,21 @@ La page où Seb voit le travail des agents de Canvai, par département.
 - **Rapport derrière ce choix :** `canvai/reports/Command center agents Canvai.md`
 - **Outil :** `ArtifactData` (ToolSearch « select:ArtifactData »), toujours avec l'`url` de la page.
 
-## Les trois collections
+## Les quatre collections
 
-**`agents`** — un document par agent (l'identifiant ne change pas : `vigie-meta`, `pouls-ventes`, `tri-service`, `bilan-finances`, `textes-pubs`, `calendrier-concours`).
-Champs : `name`, `dept` (`marketing`, `ecommerce`, `service`, `finances`, `contenu`, `operations`), `description`, `schedule`, `mode`, `model`, `status` (`actif`, `a_venir`, `pause`), `lastResult` (`ok`, `alerte`, `erreur` ou `null`), `nextRun` (texte libre), `lastRunAt` (ISO).
+**`agents`** — un document par agent (l'identifiant ne change pas : `vigie-meta`, `pouls-ventes`, `tri-service`, `bilan-finances`, `textes-pubs`, `calendrier-concours`, `resume-matin`, `soumissions-fournisseurs`).
+Champs : `name`, `dept` (`executif`, `marketing`, `creatif`, `ecommerce`, `concours`, `sourcing`, `service`, `finances` ; les anciens `contenu` et `operations` sont lus comme `creatif` et `concours`), `description`, `schedule`, `mode`, `model`, `status` (`actif`, `a_venir`, `pause`), `lastResult` (`ok`, `alerte`, `erreur` ou `null`), `nextRun` (texte libre), `lastRunAt` (ISO).
 
 **`journal`** — une entrée par exécution ou par événement.
 Champs : `at` (ISO), `dept`, `agentId` (ou `""`), `by` (ex. « Claude (session) » si ce n'est pas un agent), `level` (`ok`, `alerte`, `erreur`), `kind` (`rapport`, `alerte`, `action`, `decision`), `title` (une phrase), `detail` (2-3 lignes max), `link` (URL https ou `""`).
 
 **`approbations`** — ce qui attend l'OK de Seb.
 Champs : `createdAt` (ISO), `dept`, `agentId`, `title`, `detail`, `impact` (ex. « +50 $/jour sur l'ensemble Canada français »), `status` (`en_attente`, `approuve`, `refuse`), `decidedAt`.
+
+**`metriques`** — les chiffres de l'écran « Bureau ». Deux documents, écrits par `set` :
+- `ventes` : `periodLabel`, `revenue`, `adSpend`, `orders`, `aov`, `newCustomers` (nombres), `deltas` (optionnel, en %, mêmes clés), `updatedAt` (ISO), `source`. Le MER est calculé par la page (`revenue / adSpend`).
+- `concours` : `name`, `revenue`, `entries`, `goal`, `endsAt` (ISO).
+Écrit par le Pouls des ventes (`ventes`) et le Calendrier des concours (`concours`). Jamais un chiffre deviné : une valeur inconnue reste `null`.
 
 ## À chaque exécution d'un agent
 
