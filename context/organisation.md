@@ -31,15 +31,15 @@ Hiérarchie : PDG humain (Seb) → DOM (commandant IA) → directeurs de départ
 | Gisèle | Agent CRM, courriel et SMS | `gisele` | vague 2 : avant la mi-novembre |
 | Dex | Analytique de croissance | `dex` | retiré pour l'instant (chiffres dans Pouls des ventes) |
 
-### Créatif et contenu (`creatif`)
+### Créatif et contenu (`creatif`) — conçu et approuvé le 12 oct. 2026, voir `dept-03-creatif-contenu.md`
 
 | Agent | Rôle | Id | Vague |
 |---|---|---|---|
-| Suki (directeur) | Directrice créative | `suki` | plus tard |
-| Jesse | Intelligence créative | `jesse` | plus tard |
+| Suki (directeur) | Directrice créative | `suki` | retirée pour l'instant (DOM fait le rôle) |
+| Jesse | Intelligence créative | `jesse` | retiré pour l'instant (Roman fait l'analyse) |
 | Sean | Agent rédaction | `textes-pubs` | plus tard |
 | Neela | Vidéo et UGC | `neela` | plus tard |
-| Monica | Réseaux sociaux organiques | `monica` | plus tard |
+| Monica | Réseaux sociaux organiques | `monica` | retirée pour l'instant (pas demandé) |
 
 ### E-commerce et conversion (`ecommerce`)
 
