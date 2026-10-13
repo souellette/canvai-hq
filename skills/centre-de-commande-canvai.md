@@ -23,6 +23,14 @@ Champs : `createdAt` (ISO), `dept`, `agentId`, `title`, `detail`, `impact` (ex. 
 - `concours` : `name`, `revenue`, `entries`, `goal`, `endsAt` (ISO).
 Écrit par le Pouls des ventes (`ventes`) et le Calendrier des concours (`concours`). Jamais un chiffre deviné : une valeur inconnue reste `null`.
 
+## Phase et tâche en direct (ce que la page affiche « en cours »)
+
+Chaque agent écrit sur son document `agents`, avec `update` et le `version` lu juste avant :
+- **Au début** de l'exécution : `phase: "en_cours"`, `phaseAt` (heure ISO UTC, via `date -u`), `task` (une phrase : ce qu'il fait maintenant).
+- **À la fin, toujours, même en cas d'erreur** : `phase: "inactif"`, `phaseAt` (heure ISO), `task: ""`, avec `lastRunAt`, `lastResult`, `nextRun`.
+- La page n'affiche « En cours » que si `phaseAt` date de moins de 15 minutes. Passé ce délai sans retour à « inactif », elle affiche « Sans réponse » (routine plantée). Les animations du Bureau 3D se basent sur ces champs, jamais sur du hasard.
+- Roman (`vigie-meta`) le fait déjà. Les autres agents doivent l'écrire dans leur routine dès leur création.
+
 ## À chaque exécution d'un agent
 
 1. Faire le travail, en lecture seulement.
