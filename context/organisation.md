@@ -50,13 +50,13 @@ Hiérarchie : PDG humain (Seb) → DOM (commandant IA) → directeurs de départ
 | Twinkie | Marchandisage | `twinkie` | plus tard |
 | Ramsey | Shopify et site web | `ramsey` | plus tard |
 
-### Opérations des concours (`concours`)
+### Opérations des concours (`concours`) — conçu et approuvé le 12 oct. 2026, voir `dept-05-operations-concours.md`
 
 | Agent | Rôle | Id | Vague |
 |---|---|---|---|
-| Toretto (directeur) | Directeur des concours | `toretto` | plus tard |
+| Toretto (directeur) | Directeur des concours | `toretto` | retiré pour l'instant (DOM fait le rôle) |
 | Hector | Performance des concours | `calendrier-concours` | vague 1 : cette semaine |
-| Santos | Opérations des concours | `santos` | plus tard |
+| Santos | Opérations des concours | `santos` | retiré pour l'instant (absorbé par Carter) |
 | Carter | Conformité des concours | `carter` | vague 2 : avant la mi-novembre |
 
 ### Produit et marchandisage (`produit`)
